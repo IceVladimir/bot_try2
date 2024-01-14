@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 const express = require('express')
-const app = express()
+const app = express(), port=3001
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const CharacterAI = require("node_characterai_edited2");
@@ -41,4 +43,6 @@ app.post('/', function(req, res) {
   
 })();
 });
-app.listen(process.env.PORT || 3000)
+app.listen(port, () =>{
+	console.log('server started on ' + process.env.DOMAIN + ":" + port)
+})

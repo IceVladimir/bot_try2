@@ -17,6 +17,7 @@ COPY package*.json ./
 RUN npm install --global --quiet --no-progress --unsafe-perm
 RUN npm install express
 RUN npm install node_characterai_edited2
+RUN npm install dotenv
 	
 COPY . .
 CMD ["node", "bot1.js"]
