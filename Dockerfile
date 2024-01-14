@@ -6,6 +6,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm -g config set user root
+RUN npm install --quiet
 COPY . .
 CMD ["node", "bot1.js"]
