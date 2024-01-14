@@ -6,6 +6,6 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN sudo npm install -g --unsafe-perm=true --allow-root
+RUN npm install -g --unsafe-perm=true --allow-root
 COPY . .
 CMD ["node", "bot1.js"]
