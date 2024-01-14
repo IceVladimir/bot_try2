@@ -14,8 +14,7 @@ USER "${USER}"
 
 COPY package*.json ./
 
-RUN npm --global config set user "${USER}" \
-    && npm install --global --quiet --no-progress --unsafe-perm  \
+RUN npm install --global --quiet --no-progress --unsafe-perm  \
     && npm cache clean --force
 	
 COPY . .
