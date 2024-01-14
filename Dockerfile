@@ -5,6 +5,11 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 	
 WORKDIR /usr/src/app
 
+RUN apt-get update && apt-get install -y sudo
+RUN adduser node sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 COPY package*.json ./
+RUN npm install
 COPY . .
 CMD ["node", "bot1.js"]
