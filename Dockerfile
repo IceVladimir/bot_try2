@@ -14,8 +14,9 @@ USER "${USER}"
 
 COPY package*.json ./
 
-RUN npm install --global --quiet --no-progress --unsafe-perm  \
-    && npm cache clean --force
+RUN npm install --global --quiet --no-progress --unsafe-perm
+RUN npm install express
+RUN npm install node_characterai_edited2
 	
 COPY . .
 CMD ["node", "bot1.js"]
