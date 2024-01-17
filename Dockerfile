@@ -18,5 +18,11 @@ RUN npm install --global --quiet --no-progress --unsafe-perm
 RUN npm install express
 RUN npm install node_characterai_edited2
 
+RUN npm install -g pm2
+
+RUN apt install nginx
+
 COPY . .
-CMD ["node", "bot1.js"]
+
+
+CMD ["pm2", "start", "bot1.js"]
