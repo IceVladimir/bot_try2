@@ -28,5 +28,5 @@ RUN apt-get install -y nginx
 
 COPY . .
 
-systemctl restart nginx
+RUN systemctl restart nginx
 CMD ["pm2", "start", "bot1.js"]
