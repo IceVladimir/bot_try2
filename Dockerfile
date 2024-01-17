@@ -28,5 +28,8 @@ RUN apt-get install -y nginx
 
 COPY . .
 
-RUN systemd restart nginx
+RUN iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+RUN iptables-save
+
+RUN docker run -it --rm -d -p 3001:80 --name web nginx
 CMD ["pm2", "start", "bot1.js"]
