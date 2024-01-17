@@ -20,7 +20,7 @@ RUN npm install node_characterai_edited2
 
 RUN npm install -g pm2
 
-RUN apt install nginx
+RUN apt-get nginx
 
 COPY . .
 
