@@ -20,6 +20,10 @@ RUN npm install node_characterai_edited2
 
 RUN npm install -g pm2
 
+RUN rm /etc/apt/sources.list.d/google-chrome.list
+RUN apt-get update
+RUN apt-get upgrade
+
 RUN apt-get install nginx
 
 COPY . .
