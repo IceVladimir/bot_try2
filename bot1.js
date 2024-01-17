@@ -5,6 +5,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const CharacterAI = require("node_characterai_edited2");
 const characterAI = new CharacterAI();	
+var cd = false;
 
 app.get('/', (req, res) => {
     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
@@ -12,7 +13,8 @@ app.get('/', (req, res) => {
 
 app.post('/', function(req, res) {
 (async () => {
-
+if(cd == false){
+  cd = true;
   await characterAI.authenticateAsGuest();
   //var new_token = await characterAI.getToken1();
   //console.log(new_token);
@@ -34,12 +36,20 @@ app.post('/', function(req, res) {
   var new_token = await characterAI.getToken1();
   var new_uuid = await characterAI.getUuid1();
   await characterAI.unauthenticate2();
+  cd = false;
   res.send({
     'Answer': response.text,
 	'Token': new_token,
 	'Uuid': new_uuid,
   });
-  
+}else{
+	console.log("CD!!!");
+	res.send({
+    'Answer': 'CD',
+	'Token': 'CD',
+	'Uuid': 'CD'
+  });
+}	
 })();
 });
 app.listen(port, () =>{
