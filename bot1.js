@@ -36,8 +36,8 @@ app.post('/', function(req, res) {
   //console.log(response.text);
   var new_token = await arr_of_puppets.get(select_uuid).getToken1();
   var new_uuid = await arr_of_puppets.get(select_uuid).getUuid1();
-  for(let i = 0; i < 10; i++){
-  await arr_of_puppets.get(select_uuid).unauthenticate2();
+  while (!(arr_of_puppets.get(select_uuid).checkBrowser())){
+	await arr_of_puppets.get(select_uuid).unauthenticate2();
   }
   arr_of_puppets.delete(select_uuid)
   res.send({
