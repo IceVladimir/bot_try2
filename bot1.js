@@ -25,7 +25,7 @@ app.post('/', function(req, res) {
   await arr_of_puppets.get(select_uuid).setToken(req.body.token, req.body.uuid)
   }
   // Place your character's id here
-  const characterId = "v3lyisRb7INyd5BUdUKEKS1-MUTBom9dY9qV9-2ioTE";
+  const characterId = "mXzyPFgxh0IMoydznW110YnhiHF6ITNfiKAGklhsrjU";
 
   const chat = await arr_of_puppets.get(select_uuid).createOrContinueChat(characterId);
 
